@@ -19,7 +19,7 @@ class Board:
 
     def _read_ar(self,ar):
         def f(x,y):
-            self.cells[x][y].set(ar[x][y])
+            self.cells[x][y].value=ar[x][y]
         self._loop(f)
 
 
@@ -31,7 +31,7 @@ class Board:
                         if spx == 0 and spy ==0:
                             continue
                         if self.check(x+spx,self.maxX) and self.check(y+spy,self.maxY):
-                            if self.cells[x+spx][y+spy].get() == "X":
+                            if self.cells[x+spx][y+spy].value == "X":
                                 self.cells[x][y].xscells.append(self.cells[x+spx][y+spy])
                 self.cells[x][y].check_surr4mines()
 
