@@ -20,6 +20,7 @@ mv.click()
 
 time.sleep(5)
 tomove=[]
+hist=[]
 while(True):
     if keyboard.is_pressed('q'):
         exit()
@@ -27,8 +28,13 @@ while(True):
     if keyboard.is_pressed('r'):
         im.append(sc.screenshot())
         im[-1]['im'].save(f"im{len(im)}.png")
-        dt=Detect(f"im{len(im)}.png")
-        dt.dt()
+        if hist == []:
+            dt=Detect(f"im{len(im)}.png")
+            dt.dt()
+            hist.append(dt.get())
+        else:
+            dt=Detect(f"im{len(im)}.png",history=hist)
+            dt.dt()
         print("Detection done")
 
 
