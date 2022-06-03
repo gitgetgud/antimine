@@ -19,7 +19,7 @@ class Cell:
                     i.mine_prob=1.0
     
     def check_surr4safe(self):
-        if self.value.isnumeric():
+        if str(self.value).isnumeric():
             psum=0
             if int(self.value) < len(self.xscells):
                 for i in self.xscells:
