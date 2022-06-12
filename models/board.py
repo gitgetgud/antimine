@@ -58,14 +58,16 @@ class Board:
 
     def _read_ar(self,ar):
         def f(x,y):
+            if ar[x][y] == 0:
+                raise Exception("Board recognition failure")
             self.cells[x][y].value=ar[x][y]
         self._loop(f)
 
-    def debug(self,f=str):
+    def debug(self,a="value",f=str):
         for i in self.cells:
             tmp=[]
             for j in i:
-                tmp.append(f(j))
+                tmp.append(f(getattr(j,a)))
             print(tmp)
 
     def _get_safe(self):

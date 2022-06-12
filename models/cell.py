@@ -20,6 +20,10 @@ class Cell:
             mnum=0
             if int(self.value) < len(self.xscells):
                 for i in self.xscells:
+                    if i.mine_prob == 1.0:
+                        mnum+=1
+            if mnum == int(self.value):
+                for i in self.xscells:
                     if i.mine_prob != 1.0:
                         i.mine_prob = 0.0
 
