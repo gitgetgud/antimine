@@ -1,5 +1,5 @@
 import cv2
-from helpers.color_values import *
+from constants.color_values import *
 
 class Detect:
     def __init__(self,filename,history=None,maxX=9,maxY=9):
